@@ -31,7 +31,10 @@
         <version>3.0.2</version>
         <configuration>
           <archive>
-            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            <manifest>
+              <!-- Jar file entry point -->
+              <mainClass>mj.plfs.AppConfig</mainClass>
+            </manifest>
           </archive>
         </configuration>
       </plugin>
