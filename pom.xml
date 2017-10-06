@@ -48,6 +48,8 @@
         <configuration>
           <archive>
             <manifest>
+              <addClasspath>true</addClasspath>
+              <!--<classpathPrefix>lib/</classpathPrefix>-->
               <mainClass>mj.plfs.AppConfig</mainClass>
             </manifest>
           </archive>
