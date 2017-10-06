@@ -34,7 +34,7 @@
             <manifest>
               <!--<addClasspath>true</addClasspath>-->
               <!--<classpathPrefix>lib/</classpathPrefix>-->
-              <mainClass>MyApplication</mainClass>
+              <mainClass>mj.plfs.AppConfig</mainClass>
             </manifest>
           </archive>
         </configuration>
