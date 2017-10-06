@@ -1,7 +1,5 @@
 package mj.plfs;
 
-import mj.plfs.HelloWorld;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
@@ -17,5 +15,9 @@ public class MyApplication extends Application{
         HashSet h = new HashSet<Class<?>>();
         h.add( HelloWorld.class );
         return h;
+    }
+
+    public static void main(String args[]) {
+
     }
 }
