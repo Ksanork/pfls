@@ -37,7 +37,7 @@
         <version>1.2.0</version>
         <configuration>
           <processTypes>
-            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+            <web>java $JAVA_OPTS -cp target/classes:target/dependency/* mj.plfs.AppConfig</web>
           </processTypes>
         </configuration>
       </plugin>
