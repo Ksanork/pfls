@@ -13,11 +13,7 @@ public class MyApplication extends Application{
     @Override
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
-        h.add( HelloWorld.class );
+        h.add(HelloWorld.class);
         return h;
-    }
-
-    public static void main(String args[]) throws Exception {
-
     }
 }

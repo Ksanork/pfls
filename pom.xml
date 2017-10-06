@@ -6,6 +6,8 @@
   <groupId>mj</groupId>
   <artifactId>plfs</artifactId>
   <version>1.0</version>
+  <name>plfs</name>
+
   <dependencies>
     <dependency>
       <groupId>javax.ws.rs</groupId>
