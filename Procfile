@@ -1,1 +1,1 @@
-web: java -jar target/plfs.jar
+web: java -jar target/plfs-1.0.jar
