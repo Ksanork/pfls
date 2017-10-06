@@ -16,4 +16,6 @@ public class AppConfig extends Application{
         h.add(HelloWorld.class);
         return h;
     }
+
+    public static void main(String[] args) {}
 }
