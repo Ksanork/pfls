@@ -1,4 +1,4 @@
-package mj.plfs;
+package mj.plfs.res;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

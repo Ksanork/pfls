@@ -16,7 +16,7 @@ public class AppConfig {
     public static void main(String[] args) throws IOException {
         final String baseUri = "http://localhost:"+(System.getenv("PORT")!=null?System.getenv("PORT"):"9998")+"/";
         final Map<String, String> initParams = new HashMap<String, String>();
-        initParams.put("com.sun.jersey.config.property.packages","mj.plfs");
+        initParams.put("com.sun.jersey.config.property.packages","mj.plfs.res");
 
         System.out.println("Starting grizzly...");
         SelectorThread threadSelector = GrizzlyWebContainerFactory.create(baseUri, initParams);
