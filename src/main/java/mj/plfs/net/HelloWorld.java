@@ -6,10 +6,13 @@ import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.Date;
+import java.util.List;
 
 @Path("/")
 public class HelloWorld {
@@ -26,12 +29,34 @@ public class HelloWorld {
     }
 
     @GET
-    @Path("/add")
+    @Path("/showAll")
+    @Produces("text/html")
+    public String getNotes() {
+        String notes = "";
+        EntityManager em = null;
+        try {
+            em = getEntityManager();
+            TypedQuery<Note> query = em.createNamedQuery("Note.showAll", Note.class);
+            List<Note> results = query.getResultList();
+            for(Note n : results) {
+                notes += "<b>" + n.getText() + "</b> " +
+                        "<i>" + n.getDate() + "</i><br />";
+            }
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+
+        return notes;
+    }
+
+    @GET
+    @Path("/add/{text}")
     @Produces("text/plain")
-    public String addNote() {
+    public String addNote(@PathParam("text") String text) {
+        Date date = new Date();
         Note note = new Note();
-        note.setText("tekst notki");
-        note.setDate(new Date());
+        note.setDate(date);
+        note.setText(text);
 
         try {
             EntityManager em = getEntityManager();
@@ -42,6 +67,6 @@ public class HelloWorld {
             e.printStackTrace();
         }
 
-        return "Dodano notkę";
+        return "Dodano notkę - " + date + ", " + text;
     }
 }

@@ -1,9 +1,6 @@
 package mj.plfs.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -11,6 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name="NOTES")
+@NamedQuery(name="Note.showAll", query="select a from Note a")
 public class Note {
     private int id;
     private String text;
