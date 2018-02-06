@@ -7,25 +7,53 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
 @Path("/")
 public class HelloWorld {
+    private boolean isDebug = false;
 
     protected EntityManager getEntityManager() throws NamingException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("plfs_unit");
         return emf.createEntityManager();
     }
 
+    @Context
+    ServletContext servletContext;
+
     @GET
-    @Produces("text/plain")
-    public String getClichedMessage() {
-        return "Hello World  - improved ?";
+//    @Produces("text/plain")
+
+    @Produces({MediaType.TEXT_HTML})
+    public InputStream getClichedMessage() {
+        String base;
+        if(isDebug)
+            base = servletContext.getRealPath("WEB-INF/classes/web/index.html");
+        else
+            base = servletContext.getRealPath("target/classes/web/index.html");
+
+        File f = new File(String.format("%s", base));
+        try {
+            return new FileInputStream(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
+//        return "Hello World  - improved ?";
     }
 
     @GET
