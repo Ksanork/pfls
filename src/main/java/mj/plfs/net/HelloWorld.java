@@ -23,7 +23,7 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
-@Path("/rest")
+@Path("/")
 public class HelloWorld {
     private boolean isDebug = true;
 
@@ -32,21 +32,14 @@ public class HelloWorld {
         return emf.createEntityManager();
     }
 
-    @Context
-    ServletContext servletContext;
 
     @GET
-    @Produces({MediaType.TEXT_HTML})
+    @Path("/hello")
+    @Produces("text/html")
     public String getIndex() {
         return "Hello World  - improved ?";
     }
 
-    @GET
-    @Path("/ind")
-    public Response getPickListItems() {
-        // business logic
-        return Response.ok(new Viewable("/index.html", "Test")).build();
-    }
 
     @GET
     @Path("/showAll")
