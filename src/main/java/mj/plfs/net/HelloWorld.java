@@ -1,5 +1,6 @@
 package mj.plfs.net;
 
+import com.sun.jersey.api.view.Viewable;
 import mj.plfs.entities.Note;
 
 import javax.naming.NamingException;
@@ -14,6 +15,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,9 +23,9 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 
-@Path("/")
+@Path("/rest")
 public class HelloWorld {
-    private boolean isDebug = false;
+    private boolean isDebug = true;
 
     protected EntityManager getEntityManager() throws NamingException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("plfs_unit");
@@ -34,26 +36,16 @@ public class HelloWorld {
     ServletContext servletContext;
 
     @GET
-//    @Produces("text/plain")
-
     @Produces({MediaType.TEXT_HTML})
-    public InputStream getClichedMessage() {
-        String base;
-        if(isDebug)
-            base = servletContext.getRealPath("WEB-INF/classes/web/index.html");
-        else
-            base = servletContext.getRealPath("target/classes/web/index.html");
+    public String getIndex() {
+        return "Hello World  - improved ?";
+    }
 
-        File f = new File(String.format("%s", base));
-        try {
-            return new FileInputStream(f);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-
-//        return "Hello World  - improved ?";
+    @GET
+    @Path("/ind")
+    public Response getPickListItems() {
+        // business logic
+        return Response.ok(new Viewable("/index.html", "Test")).build();
     }
 
     @GET

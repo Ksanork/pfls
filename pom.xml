@@ -40,6 +40,17 @@
       <artifactId>grizzly-servlet-webserver</artifactId>
       <version>1.9.18-i</version>
     </dependency>
+
+      <dependency>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-servlet</artifactId>
+          <version>7.6.0.v20120127</version>
+      </dependency>
+      <dependency>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-webapp</artifactId>
+          <version>7.6.0.v20120127</version>
+      </dependency>
   </dependencies>
 
   <properties>
@@ -50,6 +61,12 @@
 
   <build>
     <defaultGoal>install</defaultGoal>
+    <resources>
+      <resource>
+        <directory>src/main/webapp</directory>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -96,6 +113,9 @@
               <mainClass>mj.plfs.AppMain</mainClass>
             </manifest>
           </archive>
+          <includes>
+              <include>**/*</include>
+          </includes>
         </configuration>
       </plugin>
       <plugin>
@@ -111,6 +131,14 @@
         </executions>
         <configuration>
           <mainClass>mj.plfs.AppMain</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>
