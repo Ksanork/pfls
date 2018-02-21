@@ -1,6 +1,5 @@
 package mj.plfs.net;
 
-import com.sun.jersey.api.view.Viewable;
 import mj.plfs.entities.Note;
 
 import javax.naming.NamingException;
@@ -8,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;

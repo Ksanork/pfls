@@ -11,14 +11,14 @@
 
         <properties>
             <!--Heroku-->
-            <property name="hibernate.connection.url" value="jdbc:mysql://us-cdbr-iron-east-05.cleardb.net:3306/heroku_42a4872fc1279b2?user=b9b9340ed9be5e"/>
-            <property name="hibernate.connection.username" value="b9b9340ed9be5e"/>
-            <property name="hibernate.connection.password" value="98da8c8b"/>
+            <!--<property name="hibernate.connection.url" value="jdbc:mysql://us-cdbr-iron-east-05.cleardb.net:3306/heroku_42a4872fc1279b2?user=b9b9340ed9be5e"/>-->
+            <!--<property name="hibernate.connection.username" value="b9b9340ed9be5e"/>-->
+            <!--<property name="hibernate.connection.password" value="98da8c8b"/>-->
 
             <!--Local-->
-            <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/plfs"/>-->
-            <!--<property name="hibernate.connection.username" value="dbuser"/>-->
-            <!--<property name="hibernate.connection.password" value="dbuser"/>-->
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/plfs"/>
+            <property name="hibernate.connection.username" value="dbuser"/>
+            <property name="hibernate.connection.password" value="dbuser"/>
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
             <property name="hibernate.archive.autodetection" value="class"/>
