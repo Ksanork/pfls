@@ -43,11 +43,11 @@
       <version>1.9.1</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.sun.grizzly</groupId>
-      <artifactId>grizzly-servlet-webserver</artifactId>
-      <version>1.9.18-i</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>com.sun.grizzly</groupId>-->
+      <!--<artifactId>grizzly-servlet-webserver</artifactId>-->
+      <!--<version>1.9.18-i</version>-->
+    <!--</dependency>-->
 
       <dependency>
           <groupId>org.eclipse.jetty</groupId>
@@ -80,6 +80,10 @@
     <resources>
       <resource>
         <directory>src/main/webapp</directory>
+        <filtering>false</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
         <filtering>false</filtering>
       </resource>
     </resources>
