@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 @Path("/")
-public class HelloWorld {
+public class NotesService {
     private boolean isDebug = true;
 
     protected EntityManager getEntityManager() throws NamingException {
